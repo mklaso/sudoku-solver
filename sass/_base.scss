@@ -1,0 +1,21 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  // defines what 1 rem represents
+  font-size: 62.5%;
+}
+
+body {
+  box-sizing: border-box;
+}
+
+::selection {
+  background-color: $color-almost-black;
+  color: lavender;
+}
