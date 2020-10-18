@@ -1,0 +1,32 @@
+.sudoku-grid {
+  background-color: $color-almost-black;
+  height: 50rem;
+  width: 50rem;
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1px;
+  padding: 1px;
+}
+
+.inner-grid-cell {
+  background-color: black;
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1px;
+  padding: 1px;
+}
+
+.cell {
+  color: $color-almost-black;
+  background-color: whitesmoke;
+  font-size: 3.8rem;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
