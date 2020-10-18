@@ -36,7 +36,7 @@ body {
   margin-bottom: 4rem;
   margin-top: 0.5rem; }
 
-.sudoku-grid {
+.sudoku__grid {
   background-color: #292a2d;
   height: 50rem;
   width: 50rem;
@@ -46,7 +46,7 @@ body {
   grid-gap: 1px;
   padding: 1px; }
 
-.inner-grid-cell {
+.inner__grid {
   background-color: black;
   height: 100%;
   width: 100%;
@@ -55,13 +55,12 @@ body {
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 1px;
   padding: 1px; }
-
-.cell {
-  color: #292a2d;
-  background-color: whitesmoke;
-  font-size: 3.8rem;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%; }
+  .inner__grid--cell {
+    color: #292a2d;
+    background-color: whitesmoke;
+    font-size: 3.8rem;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%; }
