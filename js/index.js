@@ -1,7 +1,12 @@
-// main file - handles everything using mvc
+// main file - handles everything using MVC
 
 let sudokuGrid = document.querySelector(".sudoku__grid");
 
+// move this to sudokuView after the webpack/babel config is set up.
+
+/**
+ * Renders the Sudoku board to the webpage.
+ */
 const renderInnerGrids = () => {
   const markup = `
     <div class="inner__grid">
