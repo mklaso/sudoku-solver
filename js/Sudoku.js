@@ -1,9 +1,11 @@
-// Model
+/**
+ * Sudoku Model 
+ */ 
 
+export default class Sudoku {
 /**
  * Class for the Sudoku game/board.
  */
-class Sudoku {
   constructor() {
     this.board = [];
     for (let i = 0; i < 9; i++) {
@@ -38,7 +40,8 @@ class Sudoku {
 
   /**
    * Determine if the sudoku board is valid.
-   * @return true when valid, false otherwise
+   * @return true when row, col and square checks are
+   *         valid, false otherwise.
    * */
   isValid(board, row, col, num) {
     // check row
@@ -72,7 +75,7 @@ class Sudoku {
 
   /**
    * Determines if the sudoku puzzle has been solved.
-   * @return true if all spots filled, false otherwise
+   * @return true if all spots filled, false otherwise.
    */
   isSolved() {
     for (let i = 0; i < this.board.length; i++) {
@@ -84,7 +87,7 @@ class Sudoku {
   }
 
   /**
-   * Returns an array containing the row/col index of
+   * @return an array containing the row/col index of
    * an empty spot if found, otherwise return an empty
    * array.
    */
@@ -101,6 +104,9 @@ class Sudoku {
 
   /**
    * Solves the sudoku puzzle, if possible.
+   * @return the sudoku board once the puzzle is solved,
+   *         true if puzzle is already solved, false if the
+   *         puzzle cannot be solved.
    */
   solvePuzzle(board) {
     let emptyLocation = this.findEmptySpot();
@@ -113,7 +119,7 @@ class Sudoku {
     let row = emptyLocation[0];
     let col = emptyLocation[1];
 
-    // check which val 1-9 works within the empty place
+    // check which value works in the empty place
     for (let val = 1; val < 10; val++) {
       if (this.isValid(board, row, col, val)) {
         board[row][col] = val;

@@ -4,9 +4,6 @@
   "description": "web based game of sudoku - that comes with a solver.",
   "main": "index.js",
   "scripts": {
-    "watch:sass": "node-sass sass/main.scss css/style.css -w",
-    "devserver": "live-server",
-    "start:s": "npm-run-all --parallel devserver watch:sass",
     "dev": "webpack --mode development",
     "build": "webpack --mode production",
     "start": "webpack-dev-server --mode development --open"
