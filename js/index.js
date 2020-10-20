@@ -1,4 +1,10 @@
+import "../sass/main.scss";
+import { Sudoku } from "./Sudoku";
+import { sudokuController } from "./sudokuController";
+import { sudokuView } from "./sudokuView";
 // main file - handles everything using MVC
+
+
 
 let sudokuGrid = document.querySelector(".sudoku__grid");
 
@@ -26,6 +32,6 @@ const renderInnerGrids = () => {
 };
 
 // renders the entire grid
-for (i = 0; i < 9; i++) {
+for (let i = 0; i < 9; i++) {
   renderInnerGrids();
 }

@@ -47,6 +47,7 @@ class Sudoku {
         return false;
       }
     }
+
     // check col
     for (let i = 0; i < board.length; i++) {
       if (board[i][col] === num) {
@@ -112,6 +113,7 @@ class Sudoku {
     let row = emptyLocation[0];
     let col = emptyLocation[1];
 
+    // check which val 1-9 works within the empty place
     for (let val = 1; val < 10; val++) {
       if (this.isValid(board, row, col, val)) {
         board[row][col] = val;
