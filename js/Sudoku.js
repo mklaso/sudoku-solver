@@ -9,7 +9,7 @@ class Sudoku {
     for (let i = 0; i < 9; i++) {
       this.board.push([]);
       for (let j = 0; j < 9; j++) {
-        this.board[i][j] = " ";
+        this.board[i][j] = 0;
       }
     }
   }
@@ -20,7 +20,7 @@ class Sudoku {
   resetBoard() {
     for (let i = 0; i < this.board.length; i++) {
       for (let j = 0; j < this.board[0].length; j++) {
-        this.board[i][j] = " ";
+        this.board[i][j] = 0;
       }
     }
   }
@@ -40,32 +40,29 @@ class Sudoku {
    * Determine if the sudoku board is valid.
    * @return true when valid, false otherwise
    * */
-  isValid() {
-    let [rowSet, colSet, squareSet] = [[], [], []];
-    let curr, square;
-
-    for (let i = 0; i < 9; i++) {
-      rowSet.push(new Set());
-      colSet.push(new Set());
-      squareSet.push(new Set());
+  isValid(board, row, col, num) {
+    // check row
+    for (let i = 0; i < board.length; i++) {
+      if (board[row][i] === num) {
+        return false;
+      }
+    }
+    // check col
+    for (let i = 0; i < board.length; i++) {
+      if (board[i][col] === num) {
+        return false;
+      }
     }
 
-    for (let i = 0; i < this.board.length; i++) {
-      for (let j = 0; j < this.board[0].length; j++) {
-        curr = this.board[i][j];
-        // when the cell is not empty
-        if (curr !== ".") {
-          square = Math.floor(i / 3) * 3 + Math.floor(j / 3);
-          if (
-            rowSet[i].has(curr) ||
-            colSet[j].has(curr) ||
-            squareSet[square].has(curr)
-          ) {
-            return false;
-          }
-          rowSet[i].add(curr);
-          colSet[j].add(curr);
-          squareSet[square].add(curr);
+    // row/col bounds for square
+    const start = Math.floor(row / 3) * 3;
+    const end = Math.floor(col / 3) * 3;
+
+    // check square
+    for (let i = start; i < start + 3; i++) {
+      for (let j = end; j < end + 3; j++) {
+        if (board[i][j] === num) {
+          return false;
         }
       }
     }
@@ -78,7 +75,7 @@ class Sudoku {
    */
   isSolved() {
     for (let i = 0; i < this.board.length; i++) {
-      if (this.board[i].includes(" ")) {
+      if (this.board[i].includes(0)) {
         return false;
       }
     }
@@ -93,7 +90,7 @@ class Sudoku {
   findEmptySpot() {
     for (let i = 0; i < this.board.length; i++) {
       for (let j = 0; j < this.board[0].length; j++) {
-        if (this.board[i][j] === " ") {
+        if (this.board[i][j] === 0) {
           return [i, j];
         }
       }
@@ -104,7 +101,32 @@ class Sudoku {
   /**
    * Solves the sudoku puzzle, if possible.
    */
-  solvePuzzle(board) {}
+  solvePuzzle(board) {
+    let emptyLocation = this.findEmptySpot();
+
+    if (emptyLocation.length === 0) {
+      console.log("Puzzle is in a solved state.");
+      return true;
+    }
+
+    let row = emptyLocation[0];
+    let col = emptyLocation[1];
+
+    for (let val = 1; val < 10; val++) {
+      if (this.isValid(board, row, col, val)) {
+        board[row][col] = val;
+
+        if (this.solvePuzzle(board)) {
+          return this.board;
+        }
+
+        // backtrack
+        board[row][col] = 0;
+      }
+    }
+
+    return false;
+  }
 
   /**
    * Text version of the sudoku board - for testing purposes.
