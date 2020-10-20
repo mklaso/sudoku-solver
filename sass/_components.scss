@@ -1,32 +1,19 @@
 .sudoku__grid {
-  background-color: $color-almost-black;
-  height: 50rem;
-  width: 50rem;
-  display: grid;
-  grid-template-rows: repeat(3, 1fr);
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 1px;
-  padding: 1px;
+  @include style-grid($color-almost-black, 50rem, 50rem, 1px, 1px);
 }
 
 .inner__grid {
-  background-color: black;
-  height: 100%;
-  width: 100%;
-  display: grid;
-  grid-template-rows: repeat(3, 1fr);
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 1px;
-  padding: 1px;
+  @include style-grid($color-almost-black, 100%, 100%, 1px, 1px);
 
   &--cell {
-    color: $color-almost-black;
-    background-color: whitesmoke;
     font-size: 3.8rem;
+    font-weight: 400;
     height: 100%;
+    width: 100%;
+    color: grayscale($color: #000202b7);
+    background-color: lighten(whitesmoke, 2%);
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%;
   }
 }
