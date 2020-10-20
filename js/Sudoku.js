@@ -86,9 +86,25 @@ class Sudoku {
   }
 
   /**
+   * Returns an array containing the row/col index of
+   * an empty spot if found, otherwise return an empty
+   * array.
+   */
+  findEmptySpot() {
+    for (let i = 0; i < this.board.length; i++) {
+      for (let j = 0; j < this.board[0].length; j++) {
+        if (this.board[i][j] === " ") {
+          return [i, j];
+        }
+      }
+    }
+    return [];
+  }
+
+  /**
    * Solves the sudoku puzzle, if possible.
    */
-  solvePuzzle() {}
+  solvePuzzle(board) {}
 
   /**
    * Text version of the sudoku board - for testing purposes.
