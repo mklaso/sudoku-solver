@@ -5,6 +5,9 @@
   display: grid;
   grid-template-rows: repeat(3, 1fr);
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: $gap;
-  padding: $padding;
+  //   grid-gap: $gap;
+  border-bottom: $padding $color-almost-black solid;
+  border-right: $padding $color-almost-black solid;
+  border-left: $padding $color-almost-black solid;
+  border-top: $padding $color-almost-black solid;
 }

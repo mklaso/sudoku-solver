@@ -28,17 +28,3 @@ body {
   justify-content: center;
   transform: translateY(3rem);
 }
-// .container {
-//   display: grid;
-//   grid-template-rows: 100vh repeat(5, min-content);
-//   //   grid-template-columns:
-//   //     [sidebar-start] 6rem [sidebar-end full-start] minmax(6rem, 1fr)
-//   //     [content-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end])
-//   //     [content-end] minmax(6rem, 1fr) [full-end];
-
-//   //without initial sidebar column
-//   grid-template-columns:
-//     [full-start] minmax(6rem, 1fr)
-//     [content-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end])
-//     [content-end] minmax(6rem, 1fr) [full-end];
-// }
