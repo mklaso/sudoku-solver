@@ -9,6 +9,11 @@ body {
   font-size: 3rem;
   text-align: center;
   color: grayscale($color: #000202b7);
-  margin-bottom: 4rem;
-  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+p {
+  font-size: $default-font-size;
+  font-family: "Inter", sans-serif;
+  font-weight: 300;
 }

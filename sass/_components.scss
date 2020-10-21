@@ -1,9 +1,10 @@
 .sudoku__grid {
-  @include style-grid($color-almost-black, 50rem, 50rem, 0px, 1px);
+  @include style-grid($color-almost-black, 50rem, 50rem, 1px);
 }
 
 .inner__grid {
-  @include style-grid($color-almost-black, 100%, 100%, 0px, 0.3px);
+  @include style-grid($color-almost-black, 100%, 100%, 1px);
+  border-top: 1px $color-almost-black solid;
 
   &--cell {
     font-size: 3.8rem;
@@ -17,5 +18,78 @@
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+}
+
+.difficulty {
+  margin-top: 1.5rem;
+  background-color: white;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-around;
+  padding: 0rem 0;
+  height: 4rem;
+  align-items: center;
+  width: 50rem;
+  color: $color-almost-black;
+
+  &--left {
+    background-color: lighten($color-almost-black, 10%);
+    color: whitesmoke;
+    width: 30%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    border-radius: 3px;
+  }
+
+  &--mode {
+    font-weight: 400;
+    margin-left: 2rem;
+    display: block;
+    cursor: default;
+  }
+
+  &--settings {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    margin-left: 2rem;
+    margin-right: 2rem;
+
+    & > p {
+      font-weight: 300;
+      display: inline-block;
+
+      &:hover {
+        color: lighten($color-almost-black, 25%);
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.solver {
+  background-color: lighten(gray, 50%);
+  color: $color-almost-black;
+  border: 1px solid lighten(gray, 10%);
+  margin-top: 1rem;
+  border-radius: 3rem;
+  width: 20rem;
+  padding: 1rem 0;
+  transition: 0.5s all;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover {
+    cursor: pointer;
+    background-color: lighten(whitesmoke, 1%);
+    border: 1px solid lighten(black, 40%);
+  }
+
+  &:active {
+    transform: translateY(4px);
   }
 }
