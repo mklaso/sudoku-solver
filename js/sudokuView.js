@@ -12,22 +12,18 @@ export const elements = {
     solverBtn: document.querySelector(".solver"),
     nodeList: document.querySelectorAll(".inner__grid--cell"),
 }
-
-console.log(elements.nodeList);
  
 export const renderInnerGrids = () => {
   const markup = `
-    <div class="inner__grid">
-        <input value=""class="inner__grid--cell"></input>
-        <input value=""class="inner__grid--cell"></input>
-        <input value=""class="inner__grid--cell"></input>
-        <input value=""class="inner__grid--cell"></input>
-        <input value=""class="inner__grid--cell"></input>
-        <input value=""class="inner__grid--cell"></input>
-        <input value=""class="inner__grid--cell"></input>
-        <input value=""class="inner__grid--cell"></input>
-        <input value=""class="inner__grid--cell"></input>
-    </div>
+    <input value=""class="inner__grid--cell"></input>
+    <input value=""class="inner__grid--cell"></input>
+    <input value=""class="inner__grid--cell"></input>
+    <input value=""class="inner__grid--cell"></input>
+    <input value=""class="inner__grid--cell"></input>
+    <input value=""class="inner__grid--cell"></input>
+    <input value=""class="inner__grid--cell"></input>
+    <input value=""class="inner__grid--cell"></input>
+    <input value=""class="inner__grid--cell"></input>
     `;
 
   elements.sudokuGrid.insertAdjacentHTML("beforeend", markup);
@@ -60,4 +56,14 @@ export const retrieveCurrentGridInfo = () => {
     }
 
     return currentGrid;
+}
+
+export const setCurrentGrid = (puzzle) => {
+    let count = 0;
+    for (let i = 0; i < puzzle.length; i++) {
+        for (let j = 0; j < puzzle[0].length; j++) {
+            elements.nodeList[count].value = puzzle[i][j];
+            count++;
+        }
+    }
 }

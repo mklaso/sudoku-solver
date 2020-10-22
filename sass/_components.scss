@@ -1,28 +1,25 @@
 .sudoku__grid {
   @include style-grid($color-almost-black, 50rem, 50rem);
   border: 0px $color-almost-black solid;
+  grid-template-rows: repeat(9, 1fr);
+  grid-template-columns: repeat(9, 1fr);
 }
 
-.inner__grid {
-  @include style-grid($color-almost-black, 100%, 100%);
-  border: 0px $color-almost-black solid;
-
-  &--cell {
-    font-size: 3.8rem;
-    font-weight: 400;
-    height: 100%;
-    width: 100%;
-    color: transparent;
-    text-shadow: 0 0 0 grayscale($color: #000202b7);
-    background-color: lighten(whitesmoke, 2%);
-    border: 1px $color-almost-black solid;
-    border-collapse: collapse;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    outline: none;
-    text-align: center;
-  }
+.inner__grid--cell {
+  font-size: 3.8rem;
+  font-weight: 400;
+  height: 100%;
+  width: 100%;
+  color: transparent;
+  text-shadow: 0 0 0 grayscale($color: #000202b7);
+  background-color: lighten(whitesmoke, 2%);
+  border: 1px $color-almost-black solid;
+  border-collapse: collapse;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  text-align: center;
 }
 
 .difficulty {
@@ -64,9 +61,11 @@
     & > p {
       font-weight: 300;
       display: inline-block;
+      transition: all 0.4s;
 
       &:hover {
         color: lighten($color-almost-black, 25%);
+        text-shadow: 1px 2px 14px gray;
         cursor: pointer;
       }
     }

@@ -21,24 +21,31 @@ elements.nodeList = document.querySelectorAll(".inner__grid--cell");
 // 3. solve the parsed grid
 // 4. relay the solved grid back to the UI and update each cell accordingly.
 
-elements.nodeList[0].value = 9;
-let currGrid = sudokuView.retrieveCurrentGridInfo();
-console.log(currGrid);
-
-
 const sudoku = new Sudoku();
 // testing purposes
 window.sudoku = sudoku;
+let currGrid;
 
 elements.solverBtn.addEventListener("click", (() => {
-    // 1. call the solve method on sudoku object
+    if (!sudoku.isSolved()) {
+        // 1. retrieve current grid state from UI and set sudoku state to this
+        currGrid = sudokuView.retrieveCurrentGridInfo();
+        sudoku.setBoard(currGrid);
 
-    // 2. update the ui to match the solved state
+        // testing
+        // sudoku.setBoard(grid);
+
+        // 2. call the solve method on sudoku object
+        sudoku.solvePuzzle(sudoku.board);
+        sudoku.showBoard();
+        // 3. update the ui to match the solved state
+        sudokuView.setCurrentGrid(sudoku.board);
+    }
 }))
 
 // testing purposes
-sudoku.showBoard();
-sudoku.setBoard(currGrid);
-sudoku.showBoard();
-sudoku.solvePuzzle(sudoku.board);
-sudoku.showBoard();
+// sudoku.showBoard();
+// sudoku.setBoard(currGrid);
+// sudoku.showBoard();
+// sudoku.solvePuzzle(sudoku.board);
+// sudoku.showBoard();
