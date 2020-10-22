@@ -6,20 +6,58 @@
  * Renders the inner grids of the Sudoku grid
  * to the webpage.
  */
-export const renderInnerGrids = (grid) => {
+
+export const elements = {
+    sudokuGrid: document.querySelector(".sudoku__grid"),
+    solverBtn: document.querySelector(".solver"),
+    nodeList: document.querySelectorAll(".inner__grid--cell"),
+}
+
+console.log(elements.nodeList);
+ 
+export const renderInnerGrids = () => {
   const markup = `
     <div class="inner__grid">
-        <div class="inner__grid--cell"></div>
-        <div class="inner__grid--cell">2</div>
-        <div class="inner__grid--cell">3</div>
-        <div class="inner__grid--cell">4</div>
-        <div class="inner__grid--cell"></div>
-        <div class="inner__grid--cell">6</div>
-        <div class="inner__grid--cell">7</div>
-        <div class="inner__grid--cell">8</div>
-        <div class="inner__grid--cell"></div>
+        <input value=""class="inner__grid--cell"></input>
+        <input value=""class="inner__grid--cell"></input>
+        <input value=""class="inner__grid--cell"></input>
+        <input value=""class="inner__grid--cell"></input>
+        <input value=""class="inner__grid--cell"></input>
+        <input value=""class="inner__grid--cell"></input>
+        <input value=""class="inner__grid--cell"></input>
+        <input value=""class="inner__grid--cell"></input>
+        <input value=""class="inner__grid--cell"></input>
     </div>
     `;
 
-  grid.insertAdjacentHTML("beforeend", markup);
+  elements.sudokuGrid.insertAdjacentHTML("beforeend", markup);
 };
+
+export const retrieveCurrentGridInfo = () => {
+    let currentGrid = []
+    let inner = []
+    let count = 0
+
+    for (let i = 0; i < elements.nodeList.length; i++) {
+        count++;
+        let currVal = elements.nodeList[i].value;
+        
+        if (currVal === "") {
+            currVal = 0;
+        } else {
+            currVal = parseInt(currVal);
+        }
+
+        if (count < 9) {
+            inner.push(currVal);
+
+        } else { 
+        inner.push(currVal)
+        currentGrid.push(inner);
+        inner = [];
+        count = 0;
+        }
+    }
+
+    return currentGrid;
+}

@@ -1,11 +1,8 @@
-@mixin style-grid($color, $height, $width, $padding) {
+@mixin style-grid($color, $height, $width) {
   background-color: $color;
   height: $height;
   width: $width;
   display: grid;
   grid-template-rows: repeat(3, 1fr);
   grid-template-columns: repeat(3, 1fr);
-
-  border-left: $padding $color-almost-black solid;
-
 }

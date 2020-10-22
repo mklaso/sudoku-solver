@@ -1,23 +1,27 @@
 .sudoku__grid {
-  @include style-grid($color-almost-black, 50rem, 50rem, 1px);
+  @include style-grid($color-almost-black, 50rem, 50rem);
+  border: 0px $color-almost-black solid;
 }
 
 .inner__grid {
-  @include style-grid($color-almost-black, 100%, 100%, 1px);
-  border-top: 1px $color-almost-black solid;
+  @include style-grid($color-almost-black, 100%, 100%);
+  border: 0px $color-almost-black solid;
 
   &--cell {
     font-size: 3.8rem;
     font-weight: 400;
     height: 100%;
     width: 100%;
-    color: grayscale($color: #000202b7);
+    color: transparent;
+    text-shadow: 0 0 0 grayscale($color: #000202b7);
     background-color: lighten(whitesmoke, 2%);
-    border-bottom: 1px $color-almost-black solid;
-    border-right: 1px $color-almost-black solid;
+    border: 1px $color-almost-black solid;
+    border-collapse: collapse;
     display: flex;
     align-items: center;
     justify-content: center;
+    outline: none;
+    text-align: center;
   }
 }
 
