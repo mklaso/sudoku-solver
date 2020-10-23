@@ -20,8 +20,16 @@ const sudoku = new Sudoku();
 window.sudoku = sudoku;
 let currGrid;
 
+let container = document.querySelector(".container");
+
+container.addEventListener("input", (() => {
+    currGrid = sudokuView.retrieveCurrentGrid();
+    sudoku.setBoard(currGrid);
+    sudoku.showBoard();
+}));
+
 elements.solverBtn.addEventListener("click", (() => {
-    if (!sudoku.isSolved()) {
+    if (!sudoku.isSolved() && sudoku.sudokuSafe()) {
         // retrieve current grid state from UI and set sudoku state to this
         currGrid = sudokuView.retrieveCurrentGrid();
         sudoku.setBoard(currGrid);
