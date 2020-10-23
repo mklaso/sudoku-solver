@@ -14,23 +14,14 @@
 
   <body class="container">
     <h1 class="heading--1">Sujoku</h1>
-    <div class="sudoku__grid">
-      <!-- <div class="inner__grid">
-        <div class="inner__grid--cell"></div>
-        <div class="inner__grid--cell">2</div>
-        <div class="inner__grid--cell">3</div>
-        <div class="inner__grid--cell">4</div>
-        <div class="inner__grid--cell"></div>
-        <div class="inner__grid--cell">6</div>
-        <div class="inner__grid--cell">7</div>
-        <div class="inner__grid--cell">8</div>
-        <div class="inner__grid--cell"></div>
-    </div> -->
-    </div>
+    <div class="sudoku-grid">
+      <!--
+    <input value=""class="sudoku-grid__grid-cell"></input>
+    --></div>
 
     <div class="difficulty">
       <div class="difficulty--left">
-        <p class="difficulty--mode">Difficulty</p>
+        <p class="difficulty--mode">Difficulty:</p>
       </div>
       <div class="difficulty--settings">
         <p>Easy</p>
@@ -39,9 +30,14 @@
       </div>
     </div>
 
-    <button class="solver">
-      <p>Solve</p>
-    </button>
+    <div class="options">
+      <button class="options__button options__button--solver">
+        <p>Solve Puzzle</p>
+      </button>
+      <button class="options__button options__button--reset">
+        <p>Reset</p>
+      </button>
+    </div>
 
     <script src="dist/bundle.js"></script>
   </body>

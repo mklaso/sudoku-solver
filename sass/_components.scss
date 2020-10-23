@@ -1,47 +1,47 @@
-.sudoku__grid {
-  @include style-grid($color-almost-black, 50rem, 50rem);
-  border: 0px $color-almost-black solid;
+.sudoku-grid {
+  @include style-grid-components($color-white, 50rem, 50rem);
+  display: grid;
   grid-template-rows: repeat(9, 1fr);
   grid-template-columns: repeat(9, 1fr);
-}
+  border: 0px $color-almost-black solid;
 
-.inner__grid--cell {
-  font-size: 3.8rem;
-  font-weight: 400;
-  height: 100%;
-  width: 100%;
-  color: transparent;
-  text-shadow: 0 0 0 grayscale($color: #000202b7);
-  background-color: lighten(whitesmoke, 2%);
-  border: 1px $color-almost-black solid;
-  border-collapse: collapse;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  outline: none;
-  text-align: center;
+  &__grid-cell {
+    @include style-grid-components(lighten(whitesmoke, 2%), 100%, 100%);
+    font-size: 3.8rem;
+    font-weight: 400;
+    color: transparent;
+    text-shadow: 0 0 0 grayscale($color: #000202b7);
+    border: 1px $color-almost-black solid;
+    border-collapse: collapse;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    text-align: center;
+  }
 }
 
 .difficulty {
+  @include style-grid-components($color-white, 4rem, 50rem);
   margin-top: 1.5rem;
-  background-color: white;
   border-radius: 5px;
   display: flex;
   justify-content: space-around;
   padding: 0rem 0;
-  height: 4rem;
   align-items: center;
-  width: 50rem;
   color: $color-almost-black;
 
   &--left {
-    background-color: lighten($color-almost-black, 10%);
+    @include style-grid-components(
+      lighten($color-almost-black, 10%),
+      100%,
+      30%
+    );
     color: whitesmoke;
-    width: 30%;
-    height: 100%;
+    border-radius: 3px;
+
     display: flex;
     align-items: center;
-    border-radius: 3px;
   }
 
   &--mode {
@@ -72,27 +72,46 @@
   }
 }
 
-.solver {
-  background-color: lighten(gray, 50%);
-  color: $color-almost-black;
-  border: 1px solid lighten(gray, 10%);
-  margin-top: 1rem;
-  border-radius: 3rem;
-  width: 20rem;
-  padding: 1rem 0;
-  transition: 0.5s all;
+.options {
+  display: flex;
+  width: 50rem;
+  justify-content: space-between;
 
-  &:focus {
-    outline: none;
-  }
+  &__button {
+    background-color: lighten(gray, 50%);
+    color: $color-almost-black;
+    border: 1px solid lighten(gray, 10%);
+    margin-top: 1rem;
+    border-radius: 3px;
+    padding: 1rem 0;
+    transition: 0.5s all;
 
-  &:hover {
-    cursor: pointer;
-    background-color: lighten(whitesmoke, 1%);
-    border: 1px solid lighten(black, 40%);
-  }
+    &:focus {
+      outline: none;
+    }
 
-  &:active {
-    transform: translateY(4px);
+    &:hover {
+      cursor: pointer;
+      background-color: darken(whitesmoke, 1%);
+      border: 1px solid lighten(black, 40%);
+    }
+
+    &:active {
+      transform: translateY(4px);
+    }
+
+    &--solver {
+      width: 60%;
+    }
+
+    &--reset {
+      width: 37.5%;
+      background-color: lighten($color-almost-black, 10%);
+      color: whitesmoke;
+
+      &:hover {
+        background-color: lighten($color-almost-black, 17.5%);
+      }
+    }
   }
 }

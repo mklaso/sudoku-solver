@@ -1,6 +1,5 @@
-@mixin style-grid($color, $height, $width) {
+@mixin style-grid-components($color, $height, $width) {
   background-color: $color;
   height: $height;
   width: $width;
-  display: grid;
 }

@@ -85,7 +85,6 @@ export default class Sudoku {
     }
     return true;
   }
-
   /**
    * @return an array containing the row/col index of
    * an empty spot if found, otherwise return an empty
@@ -145,5 +144,5 @@ export default class Sudoku {
       console.log(this.board[i].join("|"));
     }
     console.log("------------------");
-  }
+    }
 }

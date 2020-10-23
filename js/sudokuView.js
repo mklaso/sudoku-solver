@@ -8,28 +8,29 @@
  */
 
 export const elements = {
-    sudokuGrid: document.querySelector(".sudoku__grid"),
-    solverBtn: document.querySelector(".solver"),
-    nodeList: document.querySelectorAll(".inner__grid--cell"),
+    sudokuGrid: document.querySelector(".sudoku-grid"),
+    solverBtn: document.querySelector(".options__button--solver"),
+    resetBtn: document.querySelector(".options__button--reset"),
+    nodeList: document.querySelectorAll(".sudoku-grid__grid-cell"),
 }
  
 export const renderInnerGrids = () => {
   const markup = `
-    <input value=""class="inner__grid--cell"></input>
-    <input value=""class="inner__grid--cell"></input>
-    <input value=""class="inner__grid--cell"></input>
-    <input value=""class="inner__grid--cell"></input>
-    <input value=""class="inner__grid--cell"></input>
-    <input value=""class="inner__grid--cell"></input>
-    <input value=""class="inner__grid--cell"></input>
-    <input value=""class="inner__grid--cell"></input>
-    <input value=""class="inner__grid--cell"></input>
+    <input value=""class="sudoku-grid__grid-cell"></input>
+    <input value=""class="sudoku-grid__grid-cell"></input>
+    <input value=""class="sudoku-grid__grid-cell"></input>
+    <input value=""class="sudoku-grid__grid-cell"></input>
+    <input value=""class="sudoku-grid__grid-cell"></input>
+    <input value=""class="sudoku-grid__grid-cell"></input>
+    <input value=""class="sudoku-grid__grid-cell"></input>
+    <input value=""class="sudoku-grid__grid-cell"></input>
+    <input value=""class="sudoku-grid__grid-cell"></input>
     `;
 
   elements.sudokuGrid.insertAdjacentHTML("beforeend", markup);
 };
 
-export const retrieveCurrentGridInfo = () => {
+export const retrieveCurrentGrid = () => {
     let currentGrid = []
     let inner = []
     let count = 0
@@ -65,5 +66,11 @@ export const setCurrentGrid = (puzzle) => {
             elements.nodeList[count].value = puzzle[i][j];
             count++;
         }
+    }
+}
+
+export const clearCurrentGrid = () => {
+    for (let i = 0; i < elements.nodeList.length; i++) {
+        elements.nodeList[i].value = "";
     }
 }
