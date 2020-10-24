@@ -131,7 +131,6 @@ export default class Sudoku {
                 board[row][col] = 0;
             }
         }
-
         return false;
     }
 
@@ -179,5 +178,5 @@ export default class Sudoku {
             }
         }
         return true;
-    };
+    }
 }

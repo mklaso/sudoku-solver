@@ -8,6 +8,7 @@
  */
 
 export const elements = {
+    container: document.querySelector(".container"),
     sudokuGrid: document.querySelector(".sudoku-grid"),
     solverBtn: document.querySelector(".options__button--solver"),
     resetBtn: document.querySelector(".options__button--reset"),
@@ -16,15 +17,15 @@ export const elements = {
  
 export const renderInnerGrids = () => {
   const markup = `
-    <input value=""class="sudoku-grid__grid-cell"></input>
-    <input value=""class="sudoku-grid__grid-cell"></input>
-    <input value=""class="sudoku-grid__grid-cell"></input>
-    <input value=""class="sudoku-grid__grid-cell"></input>
-    <input value=""class="sudoku-grid__grid-cell"></input>
-    <input value=""class="sudoku-grid__grid-cell"></input>
-    <input value=""class="sudoku-grid__grid-cell"></input>
-    <input value=""class="sudoku-grid__grid-cell"></input>
-    <input value=""class="sudoku-grid__grid-cell"></input>
+    <input value="" class="sudoku-grid__grid-cell"></input>
+    <input value="" class="sudoku-grid__grid-cell"></input>
+    <input value="" class="sudoku-grid__grid-cell"></input>
+    <input value="" class="sudoku-grid__grid-cell"></input>
+    <input value="" class="sudoku-grid__grid-cell"></input>
+    <input value="" class="sudoku-grid__grid-cell"></input>
+    <input value="" class="sudoku-grid__grid-cell"></input>
+    <input value="" class="sudoku-grid__grid-cell"></input>
+    <input value="" class="sudoku-grid__grid-cell"></input>
     `;
 
   elements.sudokuGrid.insertAdjacentHTML("beforeend", markup);
