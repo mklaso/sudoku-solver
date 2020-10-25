@@ -14,22 +14,30 @@ export const elements = {
     resetBtn: document.querySelector(".options__button--reset"),
     nodeList: document.querySelectorAll(".sudoku-grid__grid-cell"),
 }
- 
-export const renderInnerGrids = () => {
-  const markup = `
-    <input value="" class="sudoku-grid__grid-cell"></input>
-    <input value="" class="sudoku-grid__grid-cell"></input>
-    <input value="" class="sudoku-grid__grid-cell"></input>
-    <input value="" class="sudoku-grid__grid-cell"></input>
-    <input value="" class="sudoku-grid__grid-cell"></input>
-    <input value="" class="sudoku-grid__grid-cell"></input>
-    <input value="" class="sudoku-grid__grid-cell"></input>
-    <input value="" class="sudoku-grid__grid-cell"></input>
-    <input value="" class="sudoku-grid__grid-cell"></input>
+
+export const renderInnerGrids = (row, col) => {
+    const markup = `
+    <input value="" class="row${row} col${col} sudoku-grid__grid-cell"></input>
     `;
 
   elements.sudokuGrid.insertAdjacentHTML("beforeend", markup);
 };
+ 
+// export const renderInnerGrids = () => {
+//   const markup = `
+//     <input value="" class="sudoku-grid__grid-cell"></input>
+//     <input value="" class="sudoku-grid__grid-cell"></input>
+//     <input value="" class="sudoku-grid__grid-cell"></input>
+//     <input value="" class="sudoku-grid__grid-cell"></input>
+//     <input value="" class="sudoku-grid__grid-cell"></input>
+//     <input value="" class="sudoku-grid__grid-cell"></input>
+//     <input value="" class="sudoku-grid__grid-cell"></input>
+//     <input value="" class="sudoku-grid__grid-cell"></input>
+//     <input value="" class="sudoku-grid__grid-cell"></input>
+//     `;
+
+//   elements.sudokuGrid.insertAdjacentHTML("beforeend", markup);
+// };
 
 export const retrieveCurrentGrid = () => {
     let currentGrid = []
@@ -64,7 +72,11 @@ export const setCurrentGrid = (puzzle) => {
     let count = 0;
     for (let i = 0; i < puzzle.length; i++) {
         for (let j = 0; j < puzzle[0].length; j++) {
-            elements.nodeList[count].value = puzzle[i][j];
+            if (puzzle[i][j] === 0) {
+                elements.nodeList[count].value = "";
+            } else {
+                elements.nodeList[count].value = puzzle[i][j];
+            }
             count++;
         }
     }
@@ -73,5 +85,6 @@ export const setCurrentGrid = (puzzle) => {
 export const clearCurrentGrid = () => {
     for (let i = 0; i < elements.nodeList.length; i++) {
         elements.nodeList[i].value = "";
+        elements.nodeList[i].style.backgroundColor = "";
     }
 }
