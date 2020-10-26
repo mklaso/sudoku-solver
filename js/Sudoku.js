@@ -45,12 +45,9 @@ export default class Sudoku {
      * */
     isValid(board, row, col, num) {
         // check row
+        num = parseInt(num);
         for (let i = 0; i < board.length; i++) {
-            console.log("TESTING");
-            num = parseInt(num);
-            // console.log("AGAIN");
-            // console.log(num);
-            console.log(board[row][i]);
+            // console.log(`${board[row][i] === num} from row.`);
             if (board[row][i] === num) {
                 return false;
             }
@@ -58,9 +55,8 @@ export default class Sudoku {
 
         // check col
         for (let i = 0; i < board.length; i++) {
-            num = parseInt(num);
-            // console.log(board[i][col], num);
-            console.log(board[i][col] === num);
+            // num = parseInt(num);
+            // console.log(`${board[i][col] === num} from column.`);
             if (board[i][col] === num) {
                 return false;
             }
@@ -73,7 +69,8 @@ export default class Sudoku {
         // check square
         for (let i = start; i < start + 3; i++) {
             for (let j = end; j < end + 3; j++) {
-                
+                // num = parseInt(num);
+                // console.log(`${board[i][j] === num} from square.`);
                 if (board[i][j] === num) {
                     return false;
                 }

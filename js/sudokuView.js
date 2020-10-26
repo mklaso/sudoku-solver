@@ -85,6 +85,8 @@ export const setCurrentGrid = (puzzle) => {
 export const clearCurrentGrid = () => {
     for (let i = 0; i < elements.nodeList.length; i++) {
         elements.nodeList[i].value = "";
-        elements.nodeList[i].style.backgroundColor = "";
+        if (elements.nodeList[i].classList.contains("sudoku-grid__grid-cell--invalid")) {
+            elements.nodeList[i].classList.remove("sudoku-grid__grid-cell--invalid");
+        }
     }
 }
