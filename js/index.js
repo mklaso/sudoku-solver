@@ -33,7 +33,7 @@ elements.container.addEventListener("input", ((e) => {
         currGrid = sudokuView.retrieveCurrentGrid();
     } else if (!input.match(numbers)) {
         e.target.value = "";
-    }
+    } 
 
     let targetRow = parseInt(e.target.classList[0].slice(-1));
     let targetCol = parseInt(e.target.classList[1].slice(-1));
