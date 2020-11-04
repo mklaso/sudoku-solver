@@ -13,6 +13,7 @@ export const elements = {
     solverBtn: document.querySelector(".options__button--solver"),
     resetBtn: document.querySelector(".options__button--reset"),
     nodeList: document.querySelectorAll(".sudoku-grid__grid-cell"),
+    timer: document.querySelector(".timer"),
 }
 
 export const renderInnerGrids = (row, col) => {
@@ -22,22 +23,6 @@ export const renderInnerGrids = (row, col) => {
 
   elements.sudokuGrid.insertAdjacentHTML("beforeend", markup);
 };
- 
-// export const renderInnerGrids = () => {
-//   const markup = `
-//     <input value="" class="sudoku-grid__grid-cell"></input>
-//     <input value="" class="sudoku-grid__grid-cell"></input>
-//     <input value="" class="sudoku-grid__grid-cell"></input>
-//     <input value="" class="sudoku-grid__grid-cell"></input>
-//     <input value="" class="sudoku-grid__grid-cell"></input>
-//     <input value="" class="sudoku-grid__grid-cell"></input>
-//     <input value="" class="sudoku-grid__grid-cell"></input>
-//     <input value="" class="sudoku-grid__grid-cell"></input>
-//     <input value="" class="sudoku-grid__grid-cell"></input>
-//     `;
-
-//   elements.sudokuGrid.insertAdjacentHTML("beforeend", markup);
-// };
 
 export const retrieveCurrentGrid = () => {
     let currentGrid = []
@@ -89,4 +74,28 @@ export const clearCurrentGrid = () => {
             elements.nodeList[i].classList.remove("sudoku-grid__grid-cell--invalid");
         }
     }
+}
+
+export const startTimer = () => {
+    // initialize time to 0
+    elements.timer.textContent = "00:00";
+    let timePassed = 0;
+
+    let timer = setInterval(() => {
+        // calculate the hour, min, and sec - each second
+        let hour = String(Math.floor(timePassed / 3600));
+        let min = String(Math.floor(timePassed / 60)).padStart(2, 0);
+        let sec = String(timePassed % 60).padStart(2, 0);
+        
+        // display our time to UI
+        if (parseInt(hour) === 0) {
+            elements.timer.textContent = `${min}:${sec}`;
+        } else { 
+            min = String(Math.floor((timePassed % 3600) / 60)).padStart(2, 0);
+            elements.timer.textContent = `${hour}:${min}:${sec}`;
+        }
+        timePassed++;
+    }, 1000)
+
+    return timer;
 }

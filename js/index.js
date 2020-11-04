@@ -21,6 +21,7 @@ const sudoku = new Sudoku();
 // testing purposes
 window.sudoku = sudoku;
 
+
 elements.container.addEventListener("input", ((e) => {
     let numbers = /^[1-9]+$/;
     let input = e.target.value;
@@ -101,7 +102,12 @@ elements.solverBtn.addEventListener("click", (() => {
     }
 }))
 
+let timer = sudokuView.startTimer(timer);
+
 elements.resetBtn.addEventListener("click", (() => {
     sudokuView.clearCurrentGrid();
     sudoku.resetBoard();
+    // clear previous timer, set timer back to 0
+    clearInterval(timer);
+    timer = sudokuView.startTimer();
 }))
