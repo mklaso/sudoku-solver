@@ -31,5 +31,10 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: "style.css"
         })
-    ]
+    ],
+    performance: {
+        hints: false,
+        maxEntrypointSize: 512000,
+        maxAssetSize: 512000
+    }
 }
